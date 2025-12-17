@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book an Estimate - MacNeil Plumbing</title>
+  <title>Book an Estimate - Comox Mechanical</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -49,6 +49,74 @@
     .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
 
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 8px 0;
+      margin-top: 8px;
+      z-index: 1000;
+      transition: opacity 0.2s ease;
+    }
+
+    .dropdown-menu:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: var(--text);
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      border-radius: 0;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--primary);
+      color: #07203a;
+      transform: translateX(5px);
+    }
+
     .page-title {
       background-color: var(--secondary);
       color: white;
@@ -68,16 +136,23 @@
 
     /* Top contact strip (matching index.html) */
     .top-strip {
-      background: #07203a; /* dark blue */
+      background: #07203a;
       color: #fff;
-      font-size: 0.9rem;
-      padding: 6px 20px;
+      font-size: 0.88rem;
+      padding: 10px 20px;
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
       align-items: center;
+      border-bottom: 1px solid rgba(253,164,21,0.3);
     }
-    .top-strip a { color: #fff; text-decoration: none; font-weight: 600; }
+    .top-strip a { 
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+    .top-strip a:hover { opacity: 0.8; }
 
     .booking-container {
       max-width: 1000px;
@@ -201,12 +276,22 @@
   <header>
     <div class="logo">
       <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
-        <img src="Irish-mechanical.png" alt="Irish Mechanical Logo">
-        <h1 style="margin:0">Irish Mechanical</h1>
+        <img src="Irish-mechanical.png" alt="Comox Mechanical Logo">
+        <h1 style="margin:0">Comox Mechanical</h1>
       </a>
     </div>
-    <nav>
-      <a href="services.html">Services</a>
+    <nav aria-label="Main navigation">
+      <div class="dropdown">
+        <a href="services.html" class="dropdown-toggle">Services</a>
+        <div class="dropdown-menu">
+          <a href="service-new-construction.html">New Construction Plumbing</a>
+          <a href="service-renovations.html">Renovations & Repairs</a>
+          <a href="service-water-heater.html">Water Heater Solutions</a>
+          <a href="service-fixtures.html">Fixture Upgrades</a>
+          <a href="service-emergency.html">24/7 Emergency Service</a>
+          <a href="service-infloor-heating.html">Radiant Infloor Heating</a>
+        </div>
+      </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
     </nav>
@@ -252,7 +337,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <div class="brand">Irish Mechanical</div>
+        <div class="brand">Comox Mechanical</div>
         <div>📍 Comox Valley, BC</div>
       </div>
       <div class="footer-col">

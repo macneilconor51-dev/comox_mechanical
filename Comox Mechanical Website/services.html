@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - Irish Mechanical </title>
+  <title>Services - Comox Mechanical </title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -48,6 +48,74 @@
     
     .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown-toggle::after {
+      content: "▼";
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 8px 0;
+      margin-top: 8px;
+      z-index: 1000;
+      transition: opacity 0.2s ease;
+    }
+
+    .dropdown-menu:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: var(--text);
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      border-radius: 0;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--primary);
+      color: #07203a;
+      transform: translateX(5px);
+    }
 
     .page-title {
       background-color: var(--secondary);
@@ -144,16 +212,23 @@
 
     /* Top contact strip (matching index.html) */
     .top-strip {
-      background: #07203a; /* dark blue */
+      background: #07203a;
       color: #fff;
-      font-size: 0.9rem;
-      padding: 6px 20px;
+      font-size: 0.88rem;
+      padding: 10px 20px;
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
       align-items: center;
+      border-bottom: 1px solid rgba(253,164,21,0.3);
     }
-    .top-strip a { color: #fff; text-decoration: none; font-weight: 600; }
+    .top-strip a { 
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+    .top-strip a:hover { opacity: 0.8; }
 
     @media (max-width: 768px) {
       .services-grid {
@@ -176,12 +251,22 @@
   <header>
     <div class="logo">
       <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
-        <img src="Irish-mechanical.png" alt="Irish Mechanical Logo">
-        <h1 style="margin:0">Irish Mechanical</h1>
+        <img src="Irish-mechanical.png" alt="Comox Mechanical Logo">
+        <h1 style="margin:0">Comox Mechanical</h1>
       </a>
     </div>
     <nav>
-      <a href="services.html">Services</a>
+      <div class="dropdown">
+        <a href="services.html" class="dropdown-toggle">Services</a>
+        <div class="dropdown-menu">
+          <a href="service-new-construction.html">New Construction Plumbing</a>
+          <a href="service-renovations.html">Renovations & Repairs</a>
+          <a href="service-water-heater.html">Water Heater Solutions</a>
+          <a href="service-fixtures.html">Fixture Upgrades</a>
+          <a href="service-emergency.html">24/7 Emergency Service</a>
+          <a href="service-infloor-heating.html">Radiant Infloor Heating</a>
+        </div>
+      </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
     </nav>
@@ -192,59 +277,59 @@
   </div>
 
   <div class="services-grid">
-    <div class="service">
+    <a href="service-new-construction.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/new_construction.jpeg" alt="New construction plumbing">
       <div class="service-content">
         <h3>New Construction Plumbing</h3>
         <p>Complete plumbing systems for new homes and buildings — installed right, the first time. We work closely with contractors and homeowners to ensure every detail is perfect.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="service">
+    <a href="service-renovations.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/reno.jpeg" alt="Renovations">
       <div class="service-content">
         <h3>Renovations & Repairs</h3>
         <p>Upgrade or repair existing plumbing with minimal downtime and clean, efficient work. Our experienced team handles everything from small fixes to complete system overhauls.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="service">
+    <a href="service-water-heater.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/tankless-water-heater.jpeg" alt="Hot water tank or tankless replace or installation">
       <div class="service-content">
         <h3>Water Heater Solutions</h3>
         <p>Energy-efficient hot water tanks or endless hot water with a tankless heater. We'll help you choose and install the perfect system for your needs and budget.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="service">
+    <a href="service-fixtures.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/new-fixtures.jpeg" alt="Fixture upgrades">
       <div class="service-content">
         <h3>Fixture Upgrades</h3>
         <p>Modernize your space with stylish fixtures, efficient piping, and professional finish. Transform your bathroom or kitchen with our expert installation services.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="service">
+    <a href="service-emergency.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/emergency-service.jpeg" alt="Emergency 24/7 Service">
       <div class="service-content">
         <h3>24/7 Emergency Service</h3>
         <p>Fast, responsive service available 24 hours a day, 7 days a week. When plumbing emergencies strike, we're here to help restore your peace of mind.</p>
       </div>
-    </div>
+    </a>
 
-    <div class="service">
+    <a href="service-infloor-heating.html" class="service" style="text-decoration: none; color: inherit;">
       <img src="Images/infloor-heat.jpeg" alt="Radiant infloor heating installation">
       <div class="service-content">
         <h3>Radiant Infloor Heating</h3>
         <p>Get the most comfortable heating in a new build or upgrade your current home. Experience the luxury of warm floors throughout your space.</p>
       </div>
-    </div>
+    </a>
   </div>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <div class="brand">MacNeil Plumbing</div>
+        <div class="brand">Comox Mechanical</div>
         <div>📍 Comox Valley, BC</div>
       </div>
       <div class="footer-col">
@@ -256,7 +341,7 @@
         </nav>
       </div>
     </div>
-    <div class="foot-note">© 2025 Irish Mechanical | Licensed & Insured</div>
+    <div class="foot-note">© 2025 Comox Mechanical | Licensed & Insured</div>
   </footer>
 </body>
 </html>
