@@ -46,6 +46,45 @@
     nav a { color: rgba(255,255,255,0.95); text-decoration: none; padding: 8px 10px; border-radius: 6px; font-weight: 600; }
     nav a:hover { background: rgba(255,255,255,0.06); }
     
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 240px;
+      box-shadow: 0 4px 12px rgba(2,6,23,0.15);
+      border-radius: 8px;
+      margin-top: 4px;
+      padding-top: 4px;
+      z-index: 1000;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease, visibility 0s linear 0.3s;
+      visibility: hidden;
+    }
+    .dropdown:hover .dropdown-menu { 
+      display: block; 
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+    .dropdown-menu a {
+      color: var(--text);
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 0;
+      transition: background 0.2s ease;
+    }
+    .dropdown-menu a:hover {
+      background: var(--bg);
+      color: var(--secondary);
+    }
+    
     .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
 
@@ -205,7 +244,17 @@
       </a>
     </div>
     <nav>
-      <a href="services.html">Services</a>
+      <div class="dropdown">
+        <a href="services.html" class="dropdown-toggle">Services ▾</a>
+        <div class="dropdown-menu">
+          <a href="new-construction.html">New Construction</a>
+          <a href="renovations.html">Renovations & Repairs</a>
+          <a href="water-heaters.html">Water Heaters</a>
+          <a href="fixture-upgrades.html">Fixture Upgrades</a>
+          <a href="emergency-service.html">24/7 Emergency</a>
+          <a href="radiant-heating.html">Radiant Heating</a>
+        </div>
+      </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
     </nav>

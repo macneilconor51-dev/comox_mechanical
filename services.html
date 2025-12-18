@@ -46,6 +46,45 @@
     nav a { color: rgba(255,255,255,0.95); text-decoration: none; padding: 8px 10px; border-radius: 6px; font-weight: 600; }
     nav a:hover { background: rgba(255,255,255,0.06); }
     
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 240px;
+      box-shadow: 0 4px 12px rgba(2,6,23,0.15);
+      border-radius: 8px;
+      margin-top: 4px;
+      padding-top: 4px;
+      z-index: 1000;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease, visibility 0s linear 0.3s;
+      visibility: hidden;
+    }
+    .dropdown:hover .dropdown-menu { 
+      display: block; 
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+    .dropdown-menu a {
+      color: var(--text);
+      display: block;
+      padding: 12px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 0;
+      transition: background 0.2s ease;
+    }
+    .dropdown-menu a:hover {
+      background: var(--bg);
+      color: var(--secondary);
+    }
+    
     .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
     .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
 
@@ -79,6 +118,12 @@
       transform: translateY(-5px);
     }
 
+    .service a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
     .service img {
       width: 100%;
       height: 200px;
@@ -96,8 +141,19 @@
 
     .service p {
       color: var(--muted);
-      margin: 0;
+      margin: 0 0 15px;
       line-height: 1.5;
+    }
+
+    .learn-more {
+      color: var(--primary);
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .service:hover .learn-more {
+      text-decoration: underline;
     }
 
     footer {
@@ -181,7 +237,17 @@
       </a>
     </div>
     <nav>
-      <a href="services.html">Services</a>
+      <div class="dropdown">
+        <a href="services.html" class="dropdown-toggle">Services ▾</a>
+        <div class="dropdown-menu">
+          <a href="new-construction.html">New Construction</a>
+          <a href="renovations.html">Renovations & Repairs</a>
+          <a href="water-heaters.html">Water Heaters</a>
+          <a href="fixture-upgrades.html">Fixture Upgrades</a>
+          <a href="emergency-service.html">24/7 Emergency</a>
+          <a href="radiant-heating.html">Radiant Heating</a>
+        </div>
+      </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
     </nav>
@@ -193,51 +259,69 @@
 
   <div class="services-grid">
     <div class="service">
-      <img src="Images/new_construction.jpeg" alt="New construction plumbing">
-      <div class="service-content">
-        <h3>New Construction Plumbing</h3>
-        <p>Complete plumbing systems for new homes and buildings — installed right, the first time. We work closely with contractors and homeowners to ensure every detail is perfect.</p>
-      </div>
+      <a href="new-construction.html">
+        <img src="Images/new_construction.jpeg" alt="New construction plumbing">
+        <div class="service-content">
+          <h3>New Construction Plumbing</h3>
+          <p>Complete plumbing systems for new homes and buildings — installed right, the first time. We work closely with contractors and homeowners to ensure every detail is perfect.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
 
     <div class="service">
-      <img src="Images/reno.jpeg" alt="Renovations">
-      <div class="service-content">
-        <h3>Renovations & Repairs</h3>
-        <p>Upgrade or repair existing plumbing with minimal downtime and clean, efficient work. Our experienced team handles everything from small fixes to complete system overhauls.</p>
-      </div>
+      <a href="renovations.html">
+        <img src="Images/reno.jpeg" alt="Renovations">
+        <div class="service-content">
+          <h3>Renovations & Repairs</h3>
+          <p>Upgrade or repair existing plumbing with minimal downtime and clean, efficient work. Our experienced team handles everything from small fixes to complete system overhauls.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
 
     <div class="service">
-      <img src="Images/tankless-water-heater.jpeg" alt="Hot water tank or tankless replace or installation">
-      <div class="service-content">
-        <h3>Water Heater Solutions</h3>
-        <p>Energy-efficient hot water tanks or endless hot water with a tankless heater. We'll help you choose and install the perfect system for your needs and budget.</p>
-      </div>
+      <a href="water-heaters.html">
+        <img src="Images/tankless-water-heater.jpeg" alt="Hot water tank or tankless replace or installation">
+        <div class="service-content">
+          <h3>Water Heater Solutions</h3>
+          <p>Energy-efficient hot water tanks or endless hot water with a tankless heater. We'll help you choose and install the perfect system for your needs and budget.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
 
     <div class="service">
-      <img src="Images/new-fixtures.jpeg" alt="Fixture upgrades">
-      <div class="service-content">
-        <h3>Fixture Upgrades</h3>
-        <p>Modernize your space with stylish fixtures, efficient piping, and professional finish. Transform your bathroom or kitchen with our expert installation services.</p>
-      </div>
+      <a href="fixture-upgrades.html">
+        <img src="Images/new-fixtures.jpeg" alt="Fixture upgrades">
+        <div class="service-content">
+          <h3>Fixture Upgrades</h3>
+          <p>Modernize your space with stylish fixtures, efficient piping, and professional finish. Transform your bathroom or kitchen with our expert installation services.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
 
     <div class="service">
-      <img src="Images/emergency-service.jpeg" alt="Emergency 24/7 Service">
-      <div class="service-content">
-        <h3>24/7 Emergency Service</h3>
-        <p>Fast, responsive service available 24 hours a day, 7 days a week. When plumbing emergencies strike, we're here to help restore your peace of mind.</p>
-      </div>
+      <a href="emergency-service.html">
+        <img src="Images/emergency-service.jpeg" alt="Emergency 24/7 Service">
+        <div class="service-content">
+          <h3>24/7 Emergency Service</h3>
+          <p>Fast, responsive service available 24 hours a day, 7 days a week. When plumbing emergencies strike, we're here to help restore your peace of mind.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
 
     <div class="service">
-      <img src="Images/infloor-heat.jpeg" alt="Radiant infloor heating installation">
-      <div class="service-content">
-        <h3>Radiant Infloor Heating</h3>
-        <p>Get the most comfortable heating in a new build or upgrade your current home. Experience the luxury of warm floors throughout your space.</p>
-      </div>
+      <a href="radiant-heating.html">
+        <img src="Images/infloor-heat.jpeg" alt="Radiant infloor heating installation">
+        <div class="service-content">
+          <h3>Radiant Infloor Heating</h3>
+          <p>Get the most comfortable heating in a new build or upgrade your current home. Experience the luxury of warm floors throughout your space.</p>
+          <span class="learn-more">Learn More →</span>
+        </div>
+      </a>
     </div>
   </div>
 
