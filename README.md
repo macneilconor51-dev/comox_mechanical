@@ -36,21 +36,34 @@ All HTML files include cache control meta tags to prevent aggressive caching:
 <meta http-equiv="Expires" content="0" />
 ```
 
-These headers tell browsers not to cache the pages, which is helpful during development. **Note:** For production deployment, you may want to adjust these settings to allow caching for better performance.
+These headers tell browsers not to cache the pages, which is helpful during development. 
+
+**Important Note for Production:** Before deploying to production, consider removing or modifying these cache control meta tags to improve website performance. For production, it's better to:
+- Remove these meta tags from the HTML files
+- Configure cache headers at the server level (e.g., `.htaccess` for Apache, or hosting provider settings)
+- Allow browsers to cache static resources (CSS, images, JavaScript) for better performance
+- Use cache-busting techniques (query strings or file hashing) when you update resources
 
 ## File Structure
 
 ```
 Comox Mechanical Website/
-├── index.html              # Home page
-├── services.html           # Services overview
-├── book.html              # Booking page
-├── contact-us.html        # Contact page
-├── service-*.html         # Individual service pages
-├── Images/                # Image assets
+├── index.html                      # Home page
+├── services.html                   # Services overview
+├── book.html                      # Booking page
+├── contact-us.html                # Contact page
+├── service-emergency.html         # 24/7 Emergency Service
+├── service-fixtures.html          # Fixture Upgrades
+├── service-infloor-heating.html   # Radiant Infloor Heating
+├── service-new-construction.html  # New Construction Plumbing
+├── service-renovations.html       # Renovations & Repairs
+├── service-water-heater.html      # Water Heater Solutions
+├── Images/                        # Image assets
 │   ├── logo-crop.png
+│   ├── emergency-service.jpeg
+│   ├── infloor-heat.jpeg
 │   └── ...
-├── Comox-Mechanical.png   # Logo
+├── Comox-Mechanical.png           # Logo
 └── ...
 ```
 
