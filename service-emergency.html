@@ -49,75 +49,46 @@
     }
 
     header {
-      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.95));
+      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.9));
       color: white;
-      padding: 16px 30px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(2,6,23,0.08);
     }
 
-    .logo { 
-      display: flex; 
-      align-items: center; 
-      gap: 14px;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s ease;
-    }
-    .logo:hover { opacity: 0.9; }
-    .logo img { 
-      height: 60px; 
-      width: auto; 
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 54px; width: auto; border-radius: 8px; }
     .logo h1 { 
       margin: 0; 
-      font-size: 1.4rem; 
+      font-size: 1.15rem; 
       font-weight: 700; 
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
     }
 
     nav { 
       display: flex; 
-      gap: 6px; 
+      gap: 12px; 
       align-items: center; 
     }
     nav a { 
       color: rgba(255,255,255,0.95); 
       text-decoration: none; 
-      padding: 10px 16px; 
-      border-radius: 8px; 
+      padding: 8px 10px; 
+      border-radius: 6px; 
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: all 0.2s ease;
     }
-    nav a:hover { 
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-1px);
-    }
+    nav a:hover { background: rgba(255,255,255,0.06); }
 
-    .cta { 
-      background: var(--primary);
-      color: #07203a;
-      padding: 11px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(253,164,21,0.3);
-    }
-    .cta:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(253,164,21,0.4);
-      background: #ffb030;
-    }
+    .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
 
     /* Hamburger / mobile nav */
     .hamburger {
@@ -451,10 +422,12 @@
   </div>
 
   <header>
-    <a href="index.html" class="logo">
-      <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
-      <h1>Comox Mechanical</h1>
-    </a>
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
+        <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
+        <h1 style="margin:0">Comox Mechanical</h1>
+      </a>
+    </div>
 
     <nav aria-label="Main navigation">
       <div class="dropdown">
@@ -470,7 +443,6 @@
       </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
-      <a href="tel:+17789926324" class="cta">Call Now</a>
     </nav>
 
     <!-- hamburger for small screens -->

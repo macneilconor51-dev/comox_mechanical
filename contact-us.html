@@ -9,11 +9,13 @@
     :root { --primary: #fda415; --secondary: #004b8d; --bg: #f4f7fb; --text: #24323a; --max-width: 1000px }
     * { box-sizing: border-box }
     body { margin: 0; font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background: var(--bg); color: var(--text); }
-    header { background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.9)); color: white; padding: 12px 20px; display:flex; align-items:center; justify-content:space-between }
-    .logo { display:flex; gap:10px; align-items:center }
-    .logo img { height:48px; border-radius:6px }
-    nav { display:flex; gap:12px }
+    header { background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.9)); color: white; padding: 12px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 8px rgba(2,6,23,0.08) }
+    .logo { display:flex; gap:12px; align-items:center }
+    .logo img { height:54px; border-radius:8px }
+    .logo h1 { margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; }
+    nav { display:flex; gap:12px; align-items:center }
     nav a { color: white; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:600 }
+    nav a:hover { background: rgba(255,255,255,0.06); }
     .cta { background: white; color: var(--secondary); padding:8px 12px; border-radius:8px; font-weight:700 }
 
     /* Dropdown Menu */
@@ -84,8 +86,12 @@
       transform: translateX(5px);
     }
 
-    .page-title { background: var(--secondary); color:white; padding:36px 20px; text-align:center }
-    .page-title h1 { margin:0; font-size:2rem }
+    .page-title { background: var(--secondary); color:white; padding:40px 20px; text-align:center; margin-bottom: 40px }
+    .page-title h1 { margin:0; font-size:2.4rem }
+    @media (max-width: 768px) {
+      .page-title { padding: 30px 15px; }
+      .page-title h1 { font-size: 2rem; }
+    }
 
     .contact-wrap { max-width: var(--max-width); margin: 28px auto; padding: 0 20px 60px; display:grid; grid-template-columns: 1fr 380px; gap:28px }
     .card { background:white; padding:20px; border-radius:12px; box-shadow: 0 2px 10px rgba(2,6,23,0.06) }
