@@ -44,6 +44,11 @@
     }
     .top-strip a:hover { opacity: 0.8; }
 
+    @media (max-width: 640px) {
+      .top-strip { flex-wrap: wrap; gap: 8px; padding: 8px 12px; text-align: center; }
+      .top-strip .divider { display: none; }
+    }
+
     /* Header */
     header {
       background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.95));
@@ -114,6 +119,40 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 16px rgba(253,164,21,0.4);
       background: #ffb030;
+    }
+
+    /* Hamburger / mobile nav */
+    .hamburger {
+      width: 42px; height: 36px; display: none; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; padding: 6px; border-radius: 6px;
+    }
+    .hamburger span, .hamburger span::before, .hamburger span::after {
+      display: block; background: white; height: 2px; width: 20px; border-radius: 2px; position: relative;
+    }
+    .hamburger span::before, .hamburger span::after { content: ''; position: absolute; left: 0; }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
+
+    .mobile-nav {
+      display: none;
+      position: fixed; inset: 0 0 auto 0; top: 64px; right: 0; left: 0; background: linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));
+      padding: 24px; z-index: 998; gap: 12px; flex-direction: column; align-items: center; justify-content: flex-start;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+    .mobile-nav a { color: #fff; font-size: 1.05rem; text-decoration: none; padding: 10px 14px; display: inline-block; }
+    .mobile-nav .sub { font-size: 0.95rem; opacity: 0.9; padding-left: 6px; }
+    .mobile-nav .cta { background: var(--primary); color: #07203a; border-radius: 10px; font-weight: 700; }
+
+    /* when nav-open class set on body show mobile nav */
+    body.nav-open .mobile-nav { display: flex; }
+    body.nav-open .hamburger { background: rgba(255,255,255,0.06); }
+
+    @media (max-width: 680px) {
+      .hamburger { display: flex; }
+      nav { display: none; }
+      header { padding: 12px 16px; }
+      .logo img { height: 44px; }
+      .logo h1 { font-size: 1.05rem; }
     }
 
     /* Dropdown Menu */
@@ -401,10 +440,10 @@
 </head>
 <body>
   <div class="top-strip">
-    <div>Call: <a href="tel:+17789926324">(778) 992-6324</a></div>
-    <div>|</div>
+    <div>Call: <a href="tel:+17789926324">(778)992-6324</a></div>
+    <div class="divider">|</div>
     <div>24/7 including holidays</div>
-    <div>|</div>
+    <div class="divider">|</div>
     <div>Email: <a href="mailto:macneilconor51@gmail.com">macneilconor51@gmail.com</a></div>
   </div>
 
@@ -430,7 +469,26 @@
       <a href="contact-us.html">Contact</a>
       <a href="tel:+17789926324" class="cta">Call Now</a>
     </nav>
+
+    <!-- hamburger for small screens -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+    </button>
   </header>
+
+  <!-- mobile nav overlay (hidden by default, shown when body.nav-open) -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="service-new-construction.html" class="sub" onclick="closeMenu()">New Construction Plumbing</a>
+    <a href="service-renovations.html" class="sub" onclick="closeMenu()">Renovations & Repairs</a>
+    <a href="service-water-heater.html" class="sub" onclick="closeMenu()">Water Heater Solutions</a>
+    <a href="service-fixtures.html" class="sub" onclick="closeMenu()">Fixture Upgrades</a>
+    <a href="service-emergency.html" class="sub" onclick="closeMenu()">24/7 Emergency Service</a>
+    <a href="service-infloor-heating.html" class="sub" onclick="closeMenu()">Radiant Infloor Heating</a>
+    <a href="book.html" onclick="closeMenu()">Book Estimate</a>
+    <a href="contact-us.html" onclick="closeMenu()">Contact</a>
+    <a href="tel:+17789926324" class="cta" onclick="closeMenu()">Call Now</a>
+  </nav>
 
   <div class="hero">
     <h1>Water Heater Solutions</h1>
@@ -549,6 +607,30 @@
       <a href="tel:+17789926324" class="btn" style="margin-left: 15px;">Call (778) 992-6324</a>
     </div>
   </div>
+
+  <script>
+    // mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.hamburger');
+      function openMenu(){
+        document.body.classList.add('nav-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      }
+      // expose a helper used by mobile links
+      window.closeMenu = closeMenu;
+      if(btn){
+        btn.addEventListener('click', function(){
+          if(document.body.classList.contains('nav-open')) closeMenu(); else openMenu();
+        });
+      }
+      // close when escape pressed
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
 
   <footer>
     <div class="footer-inner">

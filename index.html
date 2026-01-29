@@ -249,6 +249,11 @@
     .top-strip a:hover { opacity: 0.8; }
     .top-strip > div:not(:has(a)) { color: rgba(255,255,255,0.7); }
 
+    @media (max-width: 640px) {
+      .top-strip { flex-wrap: wrap; gap: 8px; padding: 8px 12px; text-align: center; }
+      .top-strip .divider { display: none; }
+    }
+
     /* Hamburger / mobile nav */
     .hamburger {
       width: 42px; height: 36px; display: none; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; padding: 6px; border-radius: 6px;
@@ -264,8 +269,12 @@
       display: none;
       position: fixed; inset: 0 0 auto 0; top: 64px; right: 0; left: 0; background: linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));
       padding: 24px; z-index: 998; gap: 12px; flex-direction: column; align-items: center; justify-content: flex-start;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
     }
     .mobile-nav a { color: #fff; font-size: 1.05rem; text-decoration: none; padding: 10px 14px; display: inline-block; }
+    .mobile-nav .sub { font-size: 0.95rem; opacity: 0.9; padding-left: 6px; }
+    .mobile-nav .cta { background: var(--primary); color: #07203a; border-radius: 10px; font-weight: 700; }
 
     /* when nav-open class set on body show mobile nav */
     body.nav-open .mobile-nav { display: flex; }
@@ -326,9 +335,9 @@
   <!-- Top contact strip: replace placeholders with your real phone/email/hours -->
   <div class="top-strip">
     <div>Call: <a href="tel:+17789926324">(778)992-6324</a></div>
-    <div>|</div>
+    <div class="divider">|</div>
     <div>24/7 including holidays</div>
-    <div>|</div>
+    <div class="divider">|</div>
     <div>Email: <a href="mailto:macneilconor51@gmail.com">macneilconor51@gmail.com</a></div>
   </div>
   <header>
@@ -363,8 +372,15 @@
   <!-- mobile nav overlay (hidden by default, shown when body.nav-open) -->
     <nav class="mobile-nav" aria-label="Mobile navigation">
       <a href="services.html" onclick="closeMenu()">Services</a>
+      <a href="service-new-construction.html" class="sub" onclick="closeMenu()">New Construction Plumbing</a>
+      <a href="service-renovations.html" class="sub" onclick="closeMenu()">Renovations & Repairs</a>
+      <a href="service-water-heater.html" class="sub" onclick="closeMenu()">Water Heater Solutions</a>
+      <a href="service-fixtures.html" class="sub" onclick="closeMenu()">Fixture Upgrades</a>
+      <a href="service-emergency.html" class="sub" onclick="closeMenu()">24/7 Emergency Service</a>
+      <a href="service-infloor-heating.html" class="sub" onclick="closeMenu()">Radiant Infloor Heating</a>
       <a href="book.html" onclick="closeMenu()">Book Estimate</a>
       <a href="contact-us.html" onclick="closeMenu()">Contact</a>
+      <a href="tel:+17789926324" class="cta" onclick="closeMenu()">Call Now</a>
     </nav>
 
   <div class="hero">
