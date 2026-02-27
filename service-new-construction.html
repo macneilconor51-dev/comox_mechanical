@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Heater Solutions - Comox Mechanical</title>
+  <title>New Construction Plumbing - Comox Mechanical</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -44,76 +44,86 @@
     }
     .top-strip a:hover { opacity: 0.8; }
 
+    @media (max-width: 640px) {
+      .top-strip { flex-wrap: wrap; gap: 8px; padding: 8px 12px; text-align: center; }
+      .top-strip .divider { display: none; }
+    }
+
     /* Header */
     header {
-      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.95));
+      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.9));
       color: white;
-      padding: 16px 30px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(2,6,23,0.08);
     }
 
-    .logo { 
-      display: flex; 
-      align-items: center; 
-      gap: 14px;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s ease;
-    }
-    .logo:hover { opacity: 0.9; }
-    .logo img { 
-      height: 60px; 
-      width: auto; 
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 54px; width: auto; border-radius: 8px; }
     .logo h1 { 
       margin: 0; 
-      font-size: 1.4rem; 
+      font-size: 1.15rem; 
       font-weight: 700; 
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
     }
 
     nav { 
       display: flex; 
-      gap: 6px; 
+      gap: 12px; 
       align-items: center; 
     }
     nav a { 
       color: rgba(255,255,255,0.95); 
       text-decoration: none; 
-      padding: 10px 16px; 
-      border-radius: 8px; 
+      padding: 8px 10px; 
+      border-radius: 6px; 
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: all 0.2s ease;
     }
-    nav a:hover { 
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-1px);
-    }
+    nav a:hover { background: rgba(255,255,255,0.06); }
 
-    .cta { 
-      background: var(--primary);
-      color: #07203a;
-      padding: 11px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(253,164,21,0.3);
+    .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
+
+    /* Hamburger / mobile nav */
+    .hamburger {
+      width: 42px; height: 36px; display: none; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; padding: 6px; border-radius: 6px;
     }
-    .cta:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(253,164,21,0.4);
-      background: #ffb030;
+    .hamburger span, .hamburger span::before, .hamburger span::after {
+      display: block; background: white; height: 2px; width: 20px; border-radius: 2px; position: relative;
+    }
+    .hamburger span::before, .hamburger span::after { content: ''; position: absolute; left: 0; }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
+
+    .mobile-nav {
+      display: none;
+      position: fixed; inset: 0 0 auto 0; top: 64px; right: 0; left: 0; background: linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));
+      padding: 24px; z-index: 998; gap: 12px; flex-direction: column; align-items: center; justify-content: flex-start;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+    .mobile-nav a { color: #fff; font-size: 1.05rem; text-decoration: none; padding: 10px 14px; display: inline-block; }
+    .mobile-nav .sub { font-size: 0.95rem; opacity: 0.9; padding-left: 6px; }
+    .mobile-nav .cta { background: var(--primary); color: #07203a; border-radius: 10px; font-weight: 700; }
+
+    /* when nav-open class set on body show mobile nav */
+    body.nav-open .mobile-nav { display: flex; }
+    body.nav-open .hamburger { background: rgba(255,255,255,0.06); }
+
+    @media (max-width: 680px) {
+      .hamburger { display: flex; }
+      nav { display: none; }
+      header { padding: 12px 16px; }
+      .logo img { height: 44px; }
+      .logo h1 { font-size: 1.05rem; }
     }
 
     /* Dropdown Menu */
@@ -287,26 +297,6 @@
       font-size: 1.2rem;
     }
 
-    .comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .comparison-card {
-      background: #f8f9fa;
-      padding: 25px;
-      border-radius: 12px;
-      border-top: 4px solid var(--primary);
-    }
-
-    .comparison-card h4 {
-      color: var(--secondary);
-      font-size: 1.3rem;
-      margin-top: 0;
-    }
-
     .cta-section {
       background: linear-gradient(135deg, var(--secondary), #003a6f);
       color: white;
@@ -393,7 +383,6 @@
       .hero h1 { font-size: 2rem; }
       .card { padding: 25px; }
       .service-image { height: 250px; }
-      .comparison { grid-template-columns: 1fr; }
       .footer-inner { flex-direction: column; text-align: center; }
       nav { display: none; }
     }
@@ -401,18 +390,20 @@
 </head>
 <body>
   <div class="top-strip">
-    <div>Call: <a href="tel:+17789926324">(778) 992-6324</a></div>
-    <div>|</div>
+    <div>Call: <a href="tel:+17789926324">(778)992-6324</a></div>
+    <div class="divider">|</div>
     <div>24/7 including holidays</div>
-    <div>|</div>
-    <div>Email: <a href="mailto:macneilconor51@gmail.com">macneilconor51@gmail.com</a></div>
+    <div class="divider">|</div>
+    <div>Email: <a href="mailto:inquiry@comoxmechanical.ca">inquiry@comoxmechanical.ca</a></div>
   </div>
 
   <header>
-    <a href="index.html" class="logo">
-      <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
-      <h1>Comox Mechanical</h1>
-    </a>
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
+        <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
+        <h1 style="margin:0">Comox Mechanical</h1>
+      </a>
+    </div>
 
     <nav aria-label="Main navigation">
       <div class="dropdown">
@@ -428,127 +419,127 @@
       </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
-      <a href="tel:+17789926324" class="cta">Call Now</a>
     </nav>
+
+    <!-- hamburger for small screens -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+    </button>
   </header>
 
+  <!-- mobile nav overlay (hidden by default, shown when body.nav-open) -->
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="service-new-construction.html" class="sub" onclick="closeMenu()">New Construction Plumbing</a>
+    <a href="service-renovations.html" class="sub" onclick="closeMenu()">Renovations & Repairs</a>
+    <a href="service-water-heater.html" class="sub" onclick="closeMenu()">Water Heater Solutions</a>
+    <a href="service-fixtures.html" class="sub" onclick="closeMenu()">Fixture Upgrades</a>
+    <a href="service-emergency.html" class="sub" onclick="closeMenu()">24/7 Emergency Service</a>
+    <a href="service-infloor-heating.html" class="sub" onclick="closeMenu()">Radiant Infloor Heating</a>
+    <a href="book.html" onclick="closeMenu()">Book Estimate</a>
+    <a href="contact-us.html" onclick="closeMenu()">Contact</a>
+    <a href="tel:+17789926324" class="cta" onclick="closeMenu()">Call Now</a>
+  </nav>
+
   <div class="hero">
-    <h1>Water Heater Solutions</h1>
-    <p>Energy-efficient hot water for your home — tank or tankless, we've got you covered.</p>
+    <h1>New Construction Plumbing</h1>
+    <p>Professional plumbing systems for new homes and buildings — installed right, the first time.</p>
   </div>
 
   <div class="content">
     <div class="card">
-      <img src="Images/tankless-water-heater.jpeg" alt="Water Heater Installation" class="service-image">
+      <img src="Images/new_construction.jpeg" alt="New Construction Plumbing" class="service-image">
       
-      <h2>Reliable Hot Water When You Need It</h2>
-      <p>Your water heater is one of the hardest-working appliances in your home, providing hot water for showers, dishes, laundry, and more. Whether you need a new installation, replacement, or repair, Comox Mechanical has the expertise to ensure you have reliable, efficient hot water year-round.</p>
+      <h2>Complete Plumbing Solutions for New Builds</h2>
+      <p>When it comes to new construction, your plumbing system is the foundation of your building's comfort and functionality. At Comox Mechanical, we specialize in designing and installing complete plumbing systems that meet all building codes, exceed industry standards, and stand the test of time.</p>
 
-      <h3>Water Heater Services We Offer:</h3>
+      <h3>Our New Construction Services Include:</h3>
       <ul>
-        <li>Traditional tank water heater installation</li>
-        <li>Tankless (on-demand) water heater installation</li>
-        <li>Water heater replacement</li>
-        <li>Water heater repairs</li>
-        <li>Regular maintenance and flushing</li>
-        <li>Energy efficiency upgrades</li>
-        <li>Emergency water heater services</li>
-        <li>Gas and electric water heater service</li>
-        <li>Water heater sizing consultation</li>
-        <li>Warranty service and support</li>
+        <li>Complete system design and planning</li>
+        <li>Rough-in plumbing installation</li>
+        <li>Water supply line installation</li>
+        <li>Drain, waste, and vent (DWV) systems</li>
+        <li>Fixture installation and finishing</li>
+        <li>Gas line installation and hookups</li>
+        <li>Water heater installation (tank or tankless)</li>
+        <li>Bathroom and kitchen plumbing</li>
+        <li>Laundry room plumbing</li>
+        <li>Outdoor plumbing and hose bibs</li>
       </ul>
 
-      <h3>Tank vs. Tankless: Which is Right for You?</h3>
-      
-      <div class="comparison">
-        <div class="comparison-card">
-          <h4>Traditional Tank Water Heaters</h4>
-          <p><strong>Best For:</strong> Homes with moderate hot water needs and budget constraints.</p>
-          <ul style="margin-top: 15px;">
-            <li>Lower upfront cost</li>
-            <li>Simple, proven technology</li>
-            <li>Easy to repair and maintain</li>
-            <li>Available in various sizes (40-80+ gallons)</li>
-            <li>Familiar to most homeowners</li>
-          </ul>
-          <p style="margin-top: 15px;"><strong>Lifespan:</strong> 10-15 years with proper maintenance</p>
-        </div>
-
-        <div class="comparison-card">
-          <h4>Tankless Water Heaters</h4>
-          <p><strong>Best For:</strong> Homes seeking energy efficiency and endless hot water.</p>
-          <ul style="margin-top: 15px;">
-            <li>Endless hot water supply</li>
-            <li>20-40% more energy efficient</li>
-            <li>Compact, space-saving design</li>
-            <li>Longer lifespan</li>
-            <li>Lower operating costs</li>
-          </ul>
-          <p style="margin-top: 15px;"><strong>Lifespan:</strong> 20+ years with proper maintenance</p>
-        </div>
-      </div>
-
-      <h3>Signs You Need Water Heater Service:</h3>
-      <ul>
-        <li>No hot water or inconsistent temperatures</li>
-        <li>Strange noises (rumbling, popping, banging)</li>
-        <li>Water around the base of the tank</li>
-        <li>Rusty or discolored hot water</li>
-        <li>Unit is 10+ years old</li>
-        <li>Increased energy bills</li>
-        <li>Not enough hot water for your household</li>
-        <li>Pilot light won't stay lit (gas heaters)</li>
-      </ul>
-
-      <h3>Why Choose Comox Mechanical?</h3>
+      <h3>Why Choose Comox Mechanical for Your New Construction Project?</h3>
       <div class="features-grid">
         <div class="feature">
-          <h4>🎯 Expert Guidance</h4>
-          <p>We help you choose the right water heater for your home's size, usage patterns, and budget.</p>
+          <h4>🏗️ Expert Planning</h4>
+          <p>We work closely with builders and homeowners to design efficient, code-compliant systems tailored to your specific needs.</p>
         </div>
         <div class="feature">
-          <h4>⚡ Professional Installation</h4>
-          <p>Proper installation ensures optimal performance, efficiency, and safety for years to come.</p>
+          <h4>⚡ Efficient Installation</h4>
+          <p>Our experienced team ensures timely installation that keeps your construction project on schedule.</p>
         </div>
         <div class="feature">
-          <h4>🔧 Quality Repairs</h4>
-          <p>We diagnose and repair water heater issues quickly, often saving you the cost of replacement.</p>
+          <h4>✓ Quality Materials</h4>
+          <p>We use only high-quality, durable materials that ensure long-lasting performance and reliability.</p>
         </div>
         <div class="feature">
-          <h4>💰 Energy Savings</h4>
-          <p>Modern, efficient water heaters can significantly reduce your monthly energy costs.</p>
+          <h4>📋 Code Compliance</h4>
+          <p>All work meets or exceeds local building codes and regulations, ensuring smooth inspections.</p>
         </div>
       </div>
 
-      <h3>Our Installation Process</h3>
-      <p><strong>1. Assessment:</strong> We evaluate your current system, hot water needs, and space constraints.</p>
+      <h3>Our Process</h3>
+      <p><strong>1. Consultation & Planning:</strong> We review your building plans and specifications, providing expert input on the most efficient plumbing layout.</p>
       
-      <p><strong>2. Recommendation:</strong> We present options with transparent pricing for both tank and tankless systems.</p>
+      <p><strong>2. Material Selection:</strong> We help you choose the right fixtures, pipes, and systems that fit your budget and performance needs.</p>
       
-      <p><strong>3. Removal:</strong> We safely disconnect and remove your old water heater, disposing of it responsibly.</p>
+      <p><strong>3. Rough-In Installation:</strong> Our team installs all plumbing infrastructure during the framing stage, coordinating with other trades for seamless integration.</p>
       
-      <p><strong>4. Installation:</strong> We install your new water heater to code, ensuring all connections are secure and safe.</p>
+      <p><strong>4. Inspection & Testing:</strong> We conduct thorough pressure tests and coordinate required inspections to ensure everything meets code.</p>
       
-      <p><strong>5. Testing:</strong> We thoroughly test the system and show you how to operate and maintain it.</p>
+      <p><strong>5. Finish Work:</strong> Once interior finishes are complete, we install all fixtures, appliances, and accessories with precision and care.</p>
 
-      <h3>Maintenance Tips</h3>
-      <p>Regular maintenance extends the life of your water heater and maintains efficiency:</p>
+      <h3>Commercial & Residential Projects</h3>
+      <p>Whether you're building a custom home, a multi-unit residential building, or a commercial space, we have the expertise and resources to handle projects of any size. Our team has experience with:</p>
       <ul>
-        <li>Flush tank annually to remove sediment buildup</li>
-        <li>Test pressure relief valve yearly</li>
-        <li>Check anode rod every 2-3 years</li>
-        <li>Insulate older tanks to improve efficiency</li>
-        <li>Schedule professional inspections</li>
+        <li>Single-family homes</li>
+        <li>Multi-family residential buildings</li>
+        <li>Commercial buildings and offices</li>
+        <li>Retail spaces</li>
+        <li>Industrial facilities</li>
       </ul>
     </div>
 
     <div class="cta-section">
-      <h2>Need Water Heater Service?</h2>
-      <p>Whether you need a new installation, repair, or just have questions, we're here to help.</p>
-      <a href="book.html" class="btn">Schedule a Consultation</a>
+      <h2>Ready to Start Your New Construction Project?</h2>
+      <p>Contact us today for a detailed quote and consultation. We're here to make your new construction plumbing hassle-free.</p>
+      <a href="book.html" class="btn">Book an estimate</a>
       <a href="tel:+17789926324" class="btn" style="margin-left: 15px;">Call (778) 992-6324</a>
     </div>
   </div>
+
+  <script>
+    // mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.hamburger');
+      function openMenu(){
+        document.body.classList.add('nav-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        document.body.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+      }
+      // expose a helper used by mobile links
+      window.closeMenu = closeMenu;
+      if(btn){
+        btn.addEventListener('click', function(){
+          if(document.body.classList.contains('nav-open')) closeMenu(); else openMenu();
+        });
+      }
+      // close when escape pressed
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
 
   <footer>
     <div class="footer-inner">

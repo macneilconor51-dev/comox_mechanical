@@ -10,7 +10,7 @@
     :root {
       --primary: #fda415; /* accent */
       --secondary: #004b8d; /* deep blue */
-      --bg: #f4f7fb;
+      --bg: #000000;
       --text: #24323a;
       --muted: #6b7b86;
       --max-width: 1100px;
@@ -30,77 +30,27 @@
 
     /* Header */
     header {
-      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.95));
+      background: linear-gradient(90deg, var(--secondary), rgba(0,75,141,0.9));
       color: white;
-      padding: 16px 30px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(2,6,23,0.08);
     }
 
-    .logo { 
-      display: flex; 
-      align-items: center; 
-      gap: 14px;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s ease;
-    }
-    .logo:hover { opacity: 0.9; }
-    .logo img { 
-      height: 60px; 
-      width: auto; 
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    .logo h1 { 
-      margin: 0; 
-      font-size: 1.4rem; 
-      font-weight: 700; 
-      letter-spacing: 0.3px;
-    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 54px; width: auto; border-radius: 8px; }
+    .logo h1 { margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; }
 
-    nav { 
-      display: flex; 
-      gap: 6px; 
-      align-items: center; 
-    }
-    nav a { 
-      color: rgba(255,255,255,0.95); 
-      text-decoration: none; 
-      padding: 10px 16px; 
-      border-radius: 8px; 
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-    }
-    nav a:hover { 
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-1px);
-    }
-
-    /* Primary CTA in header */
-    .cta { 
-      background: var(--primary);
-      color: #07203a;
-      padding: 11px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(253,164,21,0.3);
-    }
-    .cta:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(253,164,21,0.4);
-      background: #ffb030;
-    }
-
+    nav { display: flex; gap: 12px; align-items: center; }
+    nav a { color: rgba(255,255,255,0.95); text-decoration: none; padding: 8px 10px; border-radius: 6px; font-weight: 600; }
+    nav a:hover { background: rgba(255,255,255,0.06); }
+    
     /* Dropdown Menu */
     .dropdown {
       position: relative;
@@ -169,6 +119,10 @@
       transform: translateX(5px);
     }
 
+    /* Primary CTA in header */
+    .cta { background: white; color: var(--secondary); padding: 10px 16px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(2,6,23,0.08); }
+
     /* Hero */
     .hero {
       /* hero now uses the logo crop image (replace if you'd prefer a large photo)
@@ -213,6 +167,86 @@
     #booking iframe { width: 100%; height: 480px; border: 0; border-radius: 10px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); }
     #contact form { max-width: 640px; margin: 0 auto; display: grid; gap: 12px; }
 
+    /* Why Choose Us section */
+    .why-choose {
+      background: linear-gradient(135deg, var(--secondary), #0056a3);
+      color: white;
+      padding: 60px 20px;
+      margin: 60px auto 40px;
+      border-radius: 0;
+      max-width: 100%;
+      box-shadow: none;
+    }
+    .why-choose h2 { text-align: center; margin: 0 0 40px; font-size: 2rem; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.15); }
+    .feature-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .feature-card h3 { margin: 0 0 10px; font-size: 1.3rem; }
+    .feature-card p { margin: 0; opacity: 0.95; line-height: 1.5; }
+
+    /* Contact section at bottom */
+    .contact-section {
+      background: white;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 48px 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(2,6,23,0.06);
+    }
+    .contact-section h2 { text-align: center; color: var(--secondary); margin: 0 0 12px; font-size: 2rem; }
+    .contact-section .subtitle { text-align: center; color: var(--muted); margin: 0 0 40px; font-size: 1.1rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .contact-card {
+      background: #f8fafc;
+      border: 2px solid #e6eef6;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+    .contact-card:hover { border-color: var(--primary); }
+    .contact-card .icon { font-size: 2.2rem; margin-bottom: 12px; color: var(--secondary); }
+    .contact-card h3 { margin: 0 0 8px; color: var(--secondary); font-size: 1.1rem; }
+    .contact-card p { margin: 0; color: var(--text); font-weight: 600; }
+    .contact-card a { color: var(--secondary); text-decoration: none; font-weight: 700; }
+    .contact-card a:hover { color: var(--primary); text-decoration: underline; }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2,6,23,0.12); }
+    .cta-btn.primary { background: var(--primary); color: #07203a; }
+    .cta-btn.secondary { background: var(--secondary); color: white; }
+
     /* Footer kept as before */
     footer { background: linear-gradient(90deg, var(--secondary), var(--primary)); color: white; padding: 24px 0 18px; margin-top: 30px; }
 
@@ -240,14 +274,13 @@
       align-items: center;
       border-bottom: 1px solid rgba(253,164,21,0.3);
     }
-    .top-strip a { 
+    .top-strip a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
       transition: opacity 0.2s ease;
     }
     .top-strip a:hover { opacity: 0.8; }
-    .top-strip > div:not(:has(a)) { color: rgba(255,255,255,0.7); }
 
     /* Hamburger / mobile nav */
     .hamburger {
@@ -264,12 +297,21 @@
       display: none;
       position: fixed; inset: 0 0 auto 0; top: 64px; right: 0; left: 0; background: linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.98));
       padding: 24px; z-index: 998; gap: 12px; flex-direction: column; align-items: center; justify-content: flex-start;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
     }
     .mobile-nav a { color: #fff; font-size: 1.05rem; text-decoration: none; padding: 10px 14px; display: inline-block; }
+    .mobile-nav .sub { font-size: 0.95rem; opacity: 0.9; padding-left: 6px; }
+    .mobile-nav .cta { background: var(--primary); color: #07203a; border-radius: 10px; font-weight: 700; }
 
     /* when nav-open class set on body show mobile nav */
     body.nav-open .mobile-nav { display: flex; }
     body.nav-open .hamburger { background: rgba(255,255,255,0.06); }
+
+    @media (max-width: 640px) {
+      .top-strip { flex-wrap: wrap; gap: 8px; padding: 8px 12px; text-align: center; }
+      .top-strip .divider { display: none; }
+    }
 
     @media (max-width: 560px) {
       .hamburger { display: flex; }
@@ -326,16 +368,18 @@
   <!-- Top contact strip: replace placeholders with your real phone/email/hours -->
   <div class="top-strip">
     <div>Call: <a href="tel:+17789926324">(778)992-6324</a></div>
-    <div>|</div>
+    <div class="divider">|</div>
     <div>24/7 including holidays</div>
-    <div>|</div>
-    <div>Email: <a href="mailto:macneilconor51@gmail.com">macneilconor51@gmail.com</a></div>
+    <div class="divider">|</div>
+    <div>Email: <a href="mailto:inquiry@comoxmechanical.ca">inquiry@comoxmechanical.ca</a></div>
   </div>
   <header>
-    <a href="index.html" class="logo">
-      <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
-      <h1>Comox Mechanical</h1>
-    </a>
+    <div class="logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">
+        <img src="Comox-Mechanical.png" alt="Comox Mechanical Logo">
+        <h1 style="margin:0">Comox Mechanical</h1>
+      </a>
+    </div>
 
     <nav aria-label="Main navigation">
       <div class="dropdown">
@@ -351,7 +395,6 @@
       </div>
       <a href="book.html">Book Estimate</a>
       <a href="contact-us.html">Contact</a>
-      <a href="tel:+17789926324" class="cta">Call Now</a>
     </nav>
 
     <!-- hamburger for small screens -->
@@ -361,11 +404,18 @@
   </header>
 
   <!-- mobile nav overlay (hidden by default, shown when body.nav-open) -->
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <a href="services.html" onclick="closeMenu()">Services</a>
-      <a href="book.html" onclick="closeMenu()">Book Estimate</a>
-      <a href="contact-us.html" onclick="closeMenu()">Contact</a>
-    </nav>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="service-new-construction.html" class="sub" onclick="closeMenu()">New Construction Plumbing</a>
+    <a href="service-renovations.html" class="sub" onclick="closeMenu()">Renovations & Repairs</a>
+    <a href="service-water-heater.html" class="sub" onclick="closeMenu()">Water Heater Solutions</a>
+    <a href="service-fixtures.html" class="sub" onclick="closeMenu()">Fixture Upgrades</a>
+    <a href="service-emergency.html" class="sub" onclick="closeMenu()">24/7 Emergency Service</a>
+    <a href="service-infloor-heating.html" class="sub" onclick="closeMenu()">Radiant Infloor Heating</a>
+    <a href="book.html" onclick="closeMenu()">Book Estimate</a>
+    <a href="contact-us.html" onclick="closeMenu()">Contact</a>
+    <a href="tel:+17789926324" class="cta" onclick="closeMenu()">Call Now</a>
+  </nav>
 
   <div class="hero">
     <div class="container">
@@ -376,105 +426,64 @@
   </div>
 
   <!-- Why Choose Us Section -->
-  <section id="why-choose-us">
-    <h2 style="text-align:center; color:var(--secondary); margin-bottom:20px;">Why Choose Comox Mechanical?</h2>
-    <div class="services-grid">
-      <div class="service">
-        <h3>🕐 24/7 Availability</h3>
-        <p>Plumbing emergencies don't wait. We're available around the clock, including holidays, to serve you when you need us most.</p>
+  <section class="why-choose">
+    <h2>Why Choose Comox Mechanical?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>24/7 Emergency Service</h3>
+        <p>Available around the clock, including holidays. We're here when you need us most.</p>
       </div>
-      <div class="service">
-        <h3>✓ Licensed & Insured</h3>
-        <p>Fully licensed and insured for your peace of mind. We meet all industry standards and regulations.</p>
+      <div class="feature-card">
+        <div class="icon">✓</div>
+        <h3>Licensed & Insured</h3>
+        <p>Fully certified professionals with comprehensive insurance for your peace of mind.</p>
       </div>
-      <div class="service">
-        <h3>💰 Upfront Pricing</h3>
-        <p>No hidden fees or surprises. We provide clear, honest estimates before any work begins.</p>
+      <div class="feature-card">
+        <div class="icon">💰</div>
+        <h3>Upfront Pricing</h3>
+        <p>No hidden fees. Get a clear, honest quote before we start any work.</p>
       </div>
-      <div class="service">
-        <h3>👷 Expert Technicians</h3>
-        <p>Our experienced team brings years of expertise to every job, from simple repairs to complex installations.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Overview -->
-  <section id="services-overview">
-    <h2 style="text-align:center; color:var(--secondary); margin-bottom:20px;">Our Services</h2>
-    <div class="services-grid">
-      <div class="service">
-        <h3>Emergency Repairs</h3>
-        <p>Burst pipes, leaks, or other urgent issues? We respond quickly to minimize damage and restore your plumbing system.</p>
-      </div>
-      <div class="service">
-        <h3>Installation & Upgrades</h3>
-        <p>From new fixtures to complete system installations, we handle all your plumbing upgrade needs with precision.</p>
-      </div>
-      <div class="service">
-        <h3>Maintenance Services</h3>
-        <p>Regular maintenance keeps your plumbing running smoothly. Schedule routine inspections to prevent costly repairs.</p>
-      </div>
-      <div class="service">
-        <h3>Commercial Plumbing</h3>
-        <p>We provide reliable plumbing services for businesses throughout the Comox Valley area.</p>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:24px;">
-      <a href="services.html" style="background:var(--primary); color:#07203a; padding:12px 24px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-block;">View All Services</a>
-    </div>
-  </section>
-
-  <!-- Customer Testimonials -->
-  <section id="testimonials">
-    <h2 style="text-align:center; color:var(--secondary); margin-bottom:20px;">What Our Customers Say</h2>
-    <div style="display:grid; gap:20px; margin-top:20px;">
-      <div style="background:#f8f9fa; padding:20px; border-radius:10px; border-left:4px solid var(--primary);">
-        <p style="font-style:italic; margin:0 0 10px;">"Fast, professional, and reasonably priced. They fixed our emergency leak on a Sunday evening. Highly recommend!"</p>
-        <p style="margin:0; font-weight:600; color:var(--secondary);">— Sarah M., Courtenay</p>
-      </div>
-      <div style="background:#f8f9fa; padding:20px; border-radius:10px; border-left:4px solid var(--primary);">
-        <p style="font-style:italic; margin:0 0 10px;">"Excellent service from start to finish. They explained everything clearly and the work was done perfectly."</p>
-        <p style="margin:0; font-weight:600; color:var(--secondary);">— Mike T., Comox</p>
-      </div>
-      <div style="background:#f8f9fa; padding:20px; border-radius:10px; border-left:4px solid var(--primary);">
-        <p style="font-style:italic; margin:0 0 10px;">"I've used Comox Mechanical several times now. Always reliable, professional, and fair pricing."</p>
-        <p style="margin:0; font-weight:600; color:var(--secondary);">— Jennifer R., Cumberland</p>
+      <div class="feature-card">
+        <div class="icon">🏆</div>
+        <h3>Quality Workmanship</h3>
+        <p>Expert craftsmanship backed by years of experience serving Comox Valley.</p>
       </div>
     </div>
   </section>
 
-  <!-- Service Area -->
-  <section id="service-area" style="background:#f8f9fa;">
-    <h2 style="text-align:center; color:var(--secondary); margin-bottom:20px;">Serving the Comox Valley</h2>
-    <p style="text-align:center; font-size:1.05rem; max-width:700px; margin:0 auto;">We proudly serve Courtenay, Comox, Cumberland, and all surrounding communities in the Comox Valley. Local, trusted, and ready to help.</p>
-  </section>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Get In Touch Today</h2>
+    <p class="subtitle">Ready to schedule service? We're here to help!</p>
+    
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>Call Us</h3>
+        <p><a href="tel:+17789926324">(778) 992-6324</a></p>
+        <p style="font-size: 0.9rem; margin-top: 8px; font-weight: 400; color: var(--muted);">Available 24/7</p>
+      </div>
+      
+      <div class="contact-card">
+        <div class="icon">✉️</div>
+        <h3>Email Us</h3>
+        <p><a href="mailto:inquiry@comoxmechanical.ca">inquiry@comoxmechanical.ca</a></p>
+        <p style="font-size: 0.9rem; margin-top: 8px; font-weight: 400; color: var(--muted);">Quick response time</p>
+      </div>
+      
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h3>Service Area</h3>
+        <p>Comox Valley, BC</p>
+        <p style="font-size: 0.9rem; margin-top: 8px; font-weight: 400; color: var(--muted);">Courtenay, Comox, Cumberland & area</p>
+      </div>
+    </div>
 
-  <!-- Contact Information Section -->
-  <section id="contact-info" style="background:linear-gradient(135deg, var(--secondary), #003a6f); color:white; margin:40px 0 0; border-radius:0; max-width:100%; padding:48px 20px;">
-    <div style="max-width:900px; margin:0 auto;">
-      <h2 style="text-align:center; margin-bottom:30px; font-size:2rem;">Get In Touch</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px; text-align:center;">
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:10px;">📞</div>
-          <h3 style="margin:0 0 10px; font-size:1.2rem;">Call Us</h3>
-          <a href="tel:+17789926324" style="color:var(--primary); font-size:1.3rem; font-weight:700; text-decoration:none;">(778) 992-6324</a>
-          <p style="margin:10px 0 0; opacity:0.9;">Available 24/7 including holidays</p>
-        </div>
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:10px;">✉️</div>
-          <h3 style="margin:0 0 10px; font-size:1.2rem;">Email Us</h3>
-          <a href="mailto:macneilconor51@gmail.com" style="color:var(--primary); font-weight:600; text-decoration:none; word-break:break-all;">macneilconor51@gmail.com</a>
-          <p style="margin:10px 0 0; opacity:0.9;">We'll respond within 24 hours</p>
-        </div>
-        <div>
-          <div style="font-size:2.5rem; margin-bottom:10px;">📍</div>
-          <h3 style="margin:0 0 10px; font-size:1.2rem;">Service Area</h3>
-          <p style="margin:0; opacity:0.9;">Courtenay, Comox, Cumberland<br>& surrounding Comox Valley</p>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:36px;">
-        <a href="book.html" style="background:var(--primary); color:#07203a; padding:14px 32px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-block; font-size:1.1rem;">Book Your Appointment</a>
-      </div>
+    <div class="cta-buttons">
+      <a href="tel:+17789926324" class="cta-btn primary">Call Now</a>
+      <a href="book.html" class="cta-btn secondary">Book Online</a>
+      <a href="contact-us.html" class="cta-btn secondary">Contact Form</a>
     </div>
   </section>
   
